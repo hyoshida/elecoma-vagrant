@@ -1,0 +1,20 @@
+{
+  "sha": "48107223f74a4616ea2d1172d66ed25e000f888f",
+  "sources": {
+    "postgresql": {
+      "locked_version": "3.0.2"
+    },
+    "ruby_build": {
+      "locked_version": "0.8.0"
+    },
+    "apt": {
+      "locked_version": "2.0.0"
+    },
+    "build-essential": {
+      "locked_version": "1.4.0"
+    },
+    "openssl": {
+      "locked_version": "1.0.2"
+    }
+  }
+}
