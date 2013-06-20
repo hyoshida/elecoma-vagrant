@@ -1,1 +1,60 @@
-{"run_list":[]}
+{
+  "postgresql": {
+    "password": {
+      "postgres": "elephant"
+    },
+    "pg_hba": [
+      { "type": "local", "db": "all", "user": "postgres", "method": "md5" },
+      { "type": "host", "db": "all", "user": "postgres", "addr": "127.0.0.1/32", "method": "md5" },
+      { "type": "host", "db": "all", "user": "postgres", "addr": "::1/128", "method": "md5" }
+    ]
+  },
+  "app": {
+     "user": "vagrant",
+     "group": "vagrant",
+     "repository": "git://github.com/elecoma/elecoma.git",
+     "environment": {
+       "RAILS_ENV": "production",
+       "LANG": "en_US.UTF-8",
+       "LC_ALL": "en_US.UTF-8"
+     },
+     "name": "elecoma",
+     "path": "/usr/local/www/elecoma"
+  },
+  "languages": {
+    "ruby": {
+      "ruby_bin": "/home/vagrant/.rbenv/versions/1.9.3-p429/bin"
+    }
+  },
+  "passenger": {
+    "root_path": "/home/vagrant/.rbenv/versions/1.9.3-p429/lib/ruby/gems/1.9.1/gems/passenger-4.0.5",
+    "module_path": "/home/vagrant/.rbenv/versions/1.9.3-p429/lib/ruby/gems/1.9.1/gems/passenger-4.0.5/libout/apache2/mod_passenger.so"
+  },
+  "rbenv": {
+    "user_installs": [
+      {
+        "user": "vagrant",
+        "rubies": ["1.9.3-p429"],
+        "global": "1.9.3-p429",
+        "gems": {
+          "1.9.3-p429": [
+            {"name": "bundler"},
+            {"name": "passenger"}
+          ]
+        }
+      }
+    ]
+  },
+  "run_list": [
+    "imagemagick::devel",
+    "database::postgresql",
+    "postgresql::client",
+    "postgresql::server",
+    "ruby_build",
+    "rbenv::user",
+    "apache2",
+    "application",
+    "passenger_apache2",
+    "elecoma-vagrant"
+  ]
+}

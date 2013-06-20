@@ -1,0 +1,16 @@
+PassengerUserSwitching off
+PassengerDefaultUser vagrant
+PassengerDefaultGroup vagrant
+
+SetEnv LANG en_US.UTF-8
+SetEnv LC_ALL en_US.UTF-8
+
+<VirtualHost *:80>
+  ServerName localhost
+  DocumentRoot /usr/local/www/elecoma/current/public
+  RailsEnv production
+  <Directory /usr/local/www/elecoma/current/public>
+    AllowOverride all
+    Options -MultiViews
+  </Directory>
+</VirtualHost>
