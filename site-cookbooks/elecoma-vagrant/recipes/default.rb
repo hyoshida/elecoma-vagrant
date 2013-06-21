@@ -85,45 +85,11 @@ web_app node.app['name'] do
   docroot "#{node.app['path']}/current/public"
   template "elecoma.conf.erb"
   server_name 'localhost'
-  #server_name node.app['apache']['server_name']
-  #server_aliases node.app['apache']['server_aliases'] || []
-  #log_dir node[:apache][:log_dir]
   rails_env node.app['environment']['RAILS_ENV']
   environment node.app['environment']
 end
 
-=begin
-web_app "elecoma" do
-  owner "vagrant"
-  group "vagrant"
-
-  docroot "/usr/local/www/elecoma/public"
-  template "elecoma.conf.erb"
-  server_name node[:fqdn]
-  server_aliases [node[:hostname], "elecoma"]
-  rails_env "production"
-
-  path "/usr/local/www/elecoma"
-  repository "git://github.com/elecoma/elecoma.git"
-
-  rails do 
-    bundler true
-    bundler_without_groups %w( mysql )
-
-    database do
-      adapter "postgresql"
-      database "elecoma"
-      username "postgres"
-      password "elephant"
-      host "localhost"
-      port 5432
-    end
-  end
-
-  passenger_apache2 do
-    node.default["languages"]["ruby"] = system "which ruby"
-    server_aliases %w( localhost )
-
-  end
+# TODO: セキュリティ的に問題があるので、ちゃんと設定を行うこと
+bash "disable iptables" do
+  code "/etc/init.d/iptables stop"
 end
-=end
