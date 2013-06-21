@@ -16,16 +16,10 @@ Vagrant::Config.run do |config|
   # Host only networks
   config.vm.network :hostonly, "10.11.12.13"
 
-  # Enable provisioning with chef solo, specifying a cookbooks path, roles
-  # path, and data_bags path (all relative to this Vagrantfile), and adding 
-  # some recipes and/or roles.
-  #
-  #config.vm.provision :chef_solo do |chef|
-  #  chef.recipe_url = "http://files.vagrantup.com/getting_started/cookbooks.tar.gz"
-  #  chef.add_recipe "vagrant_main"
-  #end
+  # Port forwarding
+  config.vm.forward_port 80, 8080
 
   config.vm.customize do |vm|
-    vm.memory_size = 1024 
+    vm.memory_size = 1024
   end
 end
