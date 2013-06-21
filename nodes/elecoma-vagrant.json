@@ -21,12 +21,8 @@
      "name": "elecoma",
      "path": "/usr/local/www/elecoma"
   },
-  "languages": {
-    "ruby": {
-      "ruby_bin": "/home/vagrant/.rbenv/versions/1.9.3-p429/bin"
-    }
-  },
   "passenger": {
+    "ruby_bin": "/home/vagrant/.rbenv/versions/1.9.3-p429/bin/ruby",
     "root_path": "/home/vagrant/.rbenv/versions/1.9.3-p429/lib/ruby/gems/1.9.1/gems/passenger-4.0.5",
     "module_path": "/home/vagrant/.rbenv/versions/1.9.3-p429/lib/ruby/gems/1.9.1/gems/passenger-4.0.5/libout/apache2/mod_passenger.so"
   },

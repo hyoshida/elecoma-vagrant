@@ -7,17 +7,20 @@
 # All rights reserved - Do Not Redistribute
 #
 
-#rbenv_ruby "1.9.3-p429" do
-#  global true
-#end
-#
-#rbenv_gem "bundler"
-#rbenv_gem "passenger"
-
 rbenv_script "passenger-install-apache2-module" do
   code "/home/#{node.app['user']}/.rbenv/shims/passenger-install-apache2-module --auto"
-  not_if { ::File.exists?("/home/#{node.app['user']}/.rbenv/versions/1.9.3-p429/lib/ruby/gems/1.9.1/gems/passenger-4.0.5/libout/apache2/mod_passenger.so") }
+  not_if { ::File.exists?(node.passenger['module_path']) }
 end 
+
+# rbenv版Rubyを使うようにパス指定
+# (node['languages']['ruby']['ruby_bin'] をオーバライドできないのでテンプレート自体を置き換え)
+begin
+  t = resources(:template => "#{node['apache']['dir']}/mods-available/passenger.conf")
+  t.source "passenger.conf.erb"
+  t.cookbook 'elecoma-vagrant'
+rescue Chef::Exceptions::ResourceNotFound
+  Chef::Log.warn "could not find template 'passenger.conf' to modify"
+end
 
 postgresql_connection_info = {
   :host => "127.0.0.1",
