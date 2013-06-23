@@ -1,4 +1,4 @@
-Elecoma vagrant
+Elecoma vagrant  [![Build Status](https://secure.travis-ci.org/hyoshida/elecoma-vagrant.png)](https://travis-ci.org/hyoshida/elecoma-vagrant)
 ===============
 
 Please enter the following line in the command line:
