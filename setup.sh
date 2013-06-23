@@ -31,4 +31,4 @@ bundle exec vagrant ssh-config --host=elecoma-vagrant > elecoma-vagrant-ssh.conf
 print "Setup elecoma-vagrant..."
 bundle exec knife solo bootstrap elecoma-vagrant -F elecoma-vagrant-ssh.conf || error
 
-print "Successed!"
+print "Setup successfully!"
