@@ -1,17 +1,20 @@
 #!/bin/sh
 
+cd `dirname $0`
+export HOME=$PWD
+
 print() {
     printf "\033[1;32m$*\033[0;39m\n"
 }
 
 error() {
-    printf "\033[1;31mAn error occurred!\033[0;39m"
+    printf "\033[1;31mAn error occurred!\033[0;39m\n"
     exit 1
 }
 
 # Gemをインストール
 print "Install gems..."
-bundle install --path vender/bundle || error
+bundle install --path vendor/bundle || error
 
 # クックブックをインストール
 print "Install cookbooks..."

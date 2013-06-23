@@ -1,1 +1,12 @@
+/.berkshelf/
+/.bundle/
+/.chef/
+/.kitchen/
+/.vagrant
+/.vagrant.d/
+/.VirtualBox/
+/vendor/
 /cookbooks/
+/VirtualBox VMs/
+/insecure_private_key
+/elecoma-vagrant-ssh.conf
