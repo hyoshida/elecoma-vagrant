@@ -6,3 +6,7 @@ gem "berkshelf"
 
 gem "vagrant"
 gem "sahara"
+
+gem 'serverspec'
+gem 'rake'
+gem 'ci_reporter'

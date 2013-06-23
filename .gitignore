@@ -7,6 +7,7 @@
 /.VirtualBox/
 /vendor/
 /cookbooks/
+/spec/reports/
 /VirtualBox VMs/
 /insecure_private_key
 /elecoma-vagrant-ssh.conf
