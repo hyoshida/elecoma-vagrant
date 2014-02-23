@@ -4,7 +4,7 @@
       "postgres": "elephant"
     },
     "pg_hba": [
-      { "type": "local", "db": "all", "user": "postgres", "method": "md5" },
+      { "type": "local", "db": "all", "user": "postgres", "method": "trust" },
       { "type": "host", "db": "all", "user": "postgres", "addr": "127.0.0.1/32", "method": "md5" },
       { "type": "host", "db": "all", "user": "postgres", "addr": "::1/128", "method": "md5" }
     ]
