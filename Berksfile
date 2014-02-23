@@ -2,7 +2,7 @@ site :opscode
 
 cookbook "imagemagick"
 cookbook "database"
-cookbook "postgresql"
+cookbook "postgresql", "= 3.2.0"
 cookbook "rbenv" , github: "fnichol/chef-rbenv"
 cookbook "ruby_build"
 cookbook "apache2"
