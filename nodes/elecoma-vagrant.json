@@ -35,7 +35,7 @@
         "gems": {
           "1.9.3-p429": [
             {"name": "bundler"},
-            {"name": "passenger"}
+            {"name": "passenger", "version": "4.0.5"}
           ]
         }
       }
