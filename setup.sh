@@ -31,4 +31,7 @@ bundle exec vagrant ssh-config --host=elecoma-vagrant > elecoma-vagrant-ssh.conf
 print "Setup elecoma-vagrant..."
 bundle exec knife solo bootstrap elecoma-vagrant -F elecoma-vagrant-ssh.conf || error
 
+# テストを実行
+bundle exec rake ci:setup:rspec spec
+
 print "Setup successfully!"
